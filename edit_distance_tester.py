@@ -1,10 +1,14 @@
 import edit_distance_helper as edh
+import pandas as pd
 
 # Get the Levenshtein distance for cat and cta
-dis, matrix = edh.lev_distance("cat", "cta")
-# print the edit distance
-print(dis)
-# print the matrix
+source = "Mountbatten"
+target = "Mountain"
+dis, matrix = edh.lev_distance(source, target)
+
+# # print the edit distance
+print("Levenshtein distance between {0} & {1} : ".format(source, target), dis)
+# # print the matrix
 print(matrix)
 
 
@@ -16,3 +20,6 @@ print(edh.nltk_edit_distance("apple", "appel"))  # 2 edit is required here
 print(
     edh.nltk_edit_distance("apple", "appel", transpose=True)
 )  # 1 edit is required if transpose is true
+
+
+print(edh.nltk_edit_distance("Damerau", "Levenshtein", transpose=True))
