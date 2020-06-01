@@ -48,8 +48,17 @@ def lev_distance(source: str = "", target: str = "") -> (int, pd.DataFrame):
 
             matrix[j][i] = value
 
+    distance = matrix[-1][-1]
+    matrix = pd.DataFrame(matrix)
+    index = [0]
+    column = [0]
+    index.extend([s for s in target])
+    column.extend([s for s in source])
+    matrix.index = index
+    matrix.columns = column
+
     # return bottom-right cell value
-    return matrix[-1][-1], pd.DataFrame(matrix)
+    return distance, matrix
 
 
 def nltk_edit_distance(
